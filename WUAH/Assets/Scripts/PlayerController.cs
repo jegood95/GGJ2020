@@ -95,10 +95,10 @@ public class PlayerController : MonoBehaviour
 				break;
 			case InputMode.Painting:
 				PaintingScrap scrap = null;
-				Ray scrapRay = Camera.ScreenPointToRay(Input.mousePosition);
-				if (Physics.Raycast(scrapRay, out RaycastHit scrapHit) == true)
+				Ray paintingRay = Camera.ScreenPointToRay(Input.mousePosition);
+				if (Physics.Raycast(paintingRay, out RaycastHit paintingHit) == true)
 				{
-					scrap = scrapHit.collider.GetComponent<PaintingScrap>();
+					scrap = paintingHit.collider.GetComponent<PaintingScrap>();
 				}
 
 				if (scrap != _Selectable)
@@ -122,6 +122,16 @@ public class PlayerController : MonoBehaviour
 				}
 				break;
 			case InputMode.PaintingScrap:
+				
+				if (Input.GetMouseButton(0) == true)
+				{
+					Ray scrapRay = Camera.ScreenPointToRay(Input.mousePosition);
+					if (Physics.Raycast(scrapRay, out RaycastHit scrapHit) == true)
+					{
+						_Scrap.Paint(scrapHit.textureCoord, Color, BrushSize);
+					}
+				}
+				
 				if (Input.GetKeyDown(KeyCode.Escape))
 				{
 					ChangeMode(InputMode.Painting);
@@ -157,10 +167,12 @@ public class PlayerController : MonoBehaviour
 				Camera.transform.position = _Selectable.GetViewingPosition();
 				Camera.transform.rotation = _Selectable.GetViewingRotation();
                 ScrapInventory.SetActive(true);
+				_Scrap?.OnUnhover();
 				break;
 			case InputMode.PaintingScrap:
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
+				Camera.transform.position = _Scrap.GetViewingPosition();
 				break;
 		}
 

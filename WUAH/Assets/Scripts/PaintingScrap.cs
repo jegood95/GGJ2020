@@ -7,26 +7,40 @@ public class PaintingScrap : MonoBehaviour, Selectable
     public MeshRenderer Renderer;
     public MeshRenderer RendererTransparent;
     public MeshCollider Collider;
-    public ParticleSystem Hover;
+    public GameObject Hover;
     public Vector3 ViewingPositon;
     
     private ScrapData _Scrap;
     private Vector2 _Size;
     private Texture2D _Texture;
-    private Texture2D _TextureTransparent;
+
+    void Start()
+    {
+        Hover.SetActive(false);
+    }
 
     public void SetScrap(ScrapData inScrap)
     {
+        if (_Scrap != null)
+        {
+            return;
+        }
+        
         _Scrap = inScrap;
         _Size = new Vector2(_Scrap.Texture.width, _Scrap.Texture.height);
         _Texture = new Texture2D((int)_Size.x, (int)_Size.y);
-        _TextureTransparent = new Texture2D(_Texture.width, _Texture.height);
-        _TextureTransparent.SetPixels(_Scrap.Texture.GetPixels());
+
+        Color[] pixels = _Texture.GetPixels();
+        for (int index = 0; index < pixels.Length; index++)
+        {
+            pixels[index].a = 0f;
+        }
+        
         Renderer.material.mainTexture = _Texture;
         Renderer.material.color = Color.white;
         Color transparent = Color.white;
         transparent.a = 0.25f;
-        RendererTransparent.material.mainTexture = _TextureTransparent;
+        RendererTransparent.material.mainTexture = _Scrap.Texture;
         RendererTransparent.material.color = transparent;
     }
     
@@ -81,13 +95,12 @@ public class PaintingScrap : MonoBehaviour, Selectable
 
     public void OnHover()
     {
-        Hover.Play();
+        Hover.SetActive(true);
     }
 
     public void OnUnhover()
     {
-        Hover.Stop();
-        Hover.Clear();
+        Hover.SetActive(false);
     }
 
     public void OnSelect(RaycastHit inHit, PlayerController inPlayer)
@@ -102,13 +115,18 @@ public class PaintingScrap : MonoBehaviour, Selectable
 
     public Vector3 GetViewingPosition()
     {
-        // Do nothing
-        return Vector3.zero;
+        return transform.position + ViewingPositon;
     }
 
     public Quaternion GetViewingRotation()
     {
-        // Do nothing
+        // Do Nothing
         return Quaternion.identity;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(transform.position + ViewingPositon, 0.5f);
     }
 }
