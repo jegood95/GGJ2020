@@ -1,81 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Painting : MonoBehaviour, Selectable
 {
-    public MeshRenderer Renderer;
-    public int Size;
-    public ParticleSystem Hover;
+    public List<PaintingScrap> Scraps;
+    public GameObject Hover;
     public Vector3 ViewingPositon;
-
-    private Texture2D _Texture;
 
     void Start()
     {
-        _Texture = new Texture2D(Size, Size);
-        Renderer.material.mainTexture = _Texture;
-        Hover.Stop();
+        Hover.SetActive(false);
+        SetScrapsCollisionActive(false);
     }
-    
-    public void Paint(Vector2 inPoint, Color inColor, int inBrushSize)
+
+    private void SetScrapsCollisionActive(bool inActive)
     {
-        inPoint *= Size;
-
-        int halfBrushSize = inBrushSize / 2;
-        int quaterBrushSize = halfBrushSize / 2;
-        
-        if ((inPoint.x - quaterBrushSize) < 0 ||
-            (inPoint.x + quaterBrushSize) >= Size ||
-            (inPoint.y - quaterBrushSize) < 0 ||
-            (inPoint.y + quaterBrushSize) >= Size)
+        foreach (PaintingScrap scrap in Scraps)
         {
-            return;
+            scrap.Collider.enabled = inActive;
         }
-
-        int startingX = (int)inPoint.x - halfBrushSize;
-        int endingX = startingX + inBrushSize;
-        
-        int startingY = (int)inPoint.y - halfBrushSize;
-        int endingY = startingY + inBrushSize;
-        
-        for (int x = startingX; x < endingX; x++)
-        {
-            if (x < 0 ||
-                x >= Size)
-            {
-                continue;
-            }
-            
-            for (int y = startingY; y < endingY; y++)
-            {
-                if (y < 0 ||
-                    y >= Size)
-                {
-                    continue;
-                }
-                
-                _Texture.SetPixel(x, y, inColor);
-            }
-        }
-        
-        _Texture.Apply();
     }
 
     public void OnHover()
     {
-        Hover.Play();
+        Hover.SetActive(true);
     }
 
     public void OnUnhover()
     {
-        Hover.Stop();
-        Hover.Clear();
+        Hover.SetActive(false);
     }
 
     public void OnSelect(RaycastHit inHit, PlayerController inPlayer)
     {
         inPlayer.ChangeMode(InputMode.Painting);
+        SetScrapsCollisionActive(true);
+    }
+
+    public void OnDeselect()
+    {
+        SetScrapsCollisionActive(false);
     }
 
     public Vector3 GetViewingPosition()
@@ -85,6 +49,12 @@ public class Painting : MonoBehaviour, Selectable
 
     public Quaternion GetViewingRotation()
     {
-        return transform.rotation;
+        return transform.parent.rotation;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(transform.position + ViewingPositon, 0.5f);
     }
 }
