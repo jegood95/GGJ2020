@@ -13,6 +13,7 @@ public class PaintingScrap : MonoBehaviour, Selectable
     private ScrapData _Scrap;
     private Vector2 _Size;
     private Texture2D _Texture;
+    private bool _IsDone = false;
 
     void Start()
     {
@@ -35,13 +36,17 @@ public class PaintingScrap : MonoBehaviour, Selectable
         {
             pixels[index].a = 0f;
         }
+        _Texture.SetPixels(pixels);
+        _Texture.Apply();
         
         Renderer.material.mainTexture = _Texture;
         Renderer.material.color = Color.white;
         Color transparent = Color.white;
-        transparent.a = 0.25f;
+        transparent.a = 0.5f;
         RendererTransparent.material.mainTexture = _Scrap.Texture;
         RendererTransparent.material.color = transparent;
+        
+        Hover.SetActive(false);
     }
     
     public void Paint(Vector2 inPoint, Color inColor, int inBrushSize)
@@ -105,12 +110,13 @@ public class PaintingScrap : MonoBehaviour, Selectable
 
     public void OnSelect(RaycastHit inHit, PlayerController inPlayer)
     {
-        // Do nothing
+        Hover.SetActive(false);
+        RendererTransparent.enabled = PaintingManager.Instance.ShowGuide;
     }
 
     public void OnDeselect()
     {
-        // Do nothing
+        RendererTransparent.enabled = _IsDone == false;
     }
 
     public Vector3 GetViewingPosition()

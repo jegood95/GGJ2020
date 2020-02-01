@@ -15,8 +15,6 @@ public class PlayerController : MonoBehaviour
 	public CharacterController Controller;
 	public float Speed;
 	public Vector2 Sensitivity;
-	public Color Color;
-	public int BrushSize;
 	public ScrapData TestScrapData;
 
     public GameObject ScrapInventory;
@@ -33,6 +31,23 @@ public class PlayerController : MonoBehaviour
 	private float _InputDelay;
 	private const float InputDelayDueToModeChange = 0.25f;
 	private Quaternion _RotationWhenSelectingPainting;
+	private Color _Color;
+	private int _BrushSize;
+
+	public PaintingScrap Scrap
+	{
+		get { return _Scrap; }
+	}
+
+	public Color Color
+	{
+		get { return _Color; }
+	}
+	
+	public int Brush
+	{
+		get { return _BrushSize; }
+	}
 
 	private void Start()
 	{
@@ -112,6 +127,7 @@ public class PlayerController : MonoBehaviour
 					Input.GetMouseButtonUp(0) == true)
 				{
 					_Scrap.SetScrap(TestScrapData);
+					_Scrap.OnSelect(paintingHit, this);
 					ChangeMode(InputMode.PaintingScrap);
 				}
 
@@ -123,18 +139,21 @@ public class PlayerController : MonoBehaviour
 				break;
 			case InputMode.PaintingScrap:
 				
-				if (Input.GetMouseButton(0) == true)
+				Ray scrapRay = Camera.ScreenPointToRay(Input.mousePosition);
+				if (Physics.Raycast(scrapRay, out RaycastHit scrapHit) == true)
 				{
-					Ray scrapRay = Camera.ScreenPointToRay(Input.mousePosition);
-					if (Physics.Raycast(scrapRay, out RaycastHit scrapHit) == true)
+					PaintingScrap paintingScrap = scrapHit.collider.GetComponent<PaintingScrap>();
+					if (paintingScrap == _Scrap &&
+						Input.GetMouseButton(0) == true)
 					{
-						_Scrap.Paint(scrapHit.textureCoord, Color, BrushSize);
+						_Scrap.Paint(scrapHit.textureCoord, _Color, _BrushSize);
 					}
 				}
-				
+
 				if (Input.GetKeyDown(KeyCode.Escape))
 				{
 					ChangeMode(InputMode.Painting);
+					_Scrap.OnDeselect();
 				}
 				break;
 		}
@@ -157,7 +176,9 @@ public class PlayerController : MonoBehaviour
 				transform.rotation = _RotationWhenSelectingPainting;
 				Camera.transform.localPosition = _StartingCameraPosition;
 				Camera.transform.localRotation = _StartingCameraRotation;
-                ScrapInventory.SetActive(false);
+				UIManager.Instance.ScrapInventory.SetActive(false);
+				_Scrap?.OnUnhover();
+				_Scrap?.OnDeselect();
                 break;
 			case InputMode.Painting:
 				_RotationWhenSelectingPainting = transform.rotation;
@@ -166,16 +187,30 @@ public class PlayerController : MonoBehaviour
 				Cursor.visible = true;
 				Camera.transform.position = _Selectable.GetViewingPosition();
 				Camera.transform.rotation = _Selectable.GetViewingRotation();
-                ScrapInventory.SetActive(true);
+				UIManager.Instance.ScrapInventory.SetActive(true);
+				UIManager.Instance.PaintingPallete.SetActive(false);
 				_Scrap?.OnUnhover();
+				_Scrap?.OnDeselect();
 				break;
 			case InputMode.PaintingScrap:
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
 				Camera.transform.position = _Scrap.GetViewingPosition();
+				UIManager.Instance.ScrapInventory.SetActive(false);
+				UIManager.Instance.PaintingPallete.SetActive(true);
 				break;
 		}
 
 		_InputDelay = InputDelayDueToModeChange;
+	}
+
+	public void SetColor(Color inColor)
+	{
+		_Color = inColor;
+	}
+
+	public void SetBrushSize(int inBrushSize)
+	{
+		_BrushSize = inBrushSize;
 	}
 }
