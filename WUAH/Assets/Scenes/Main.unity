@@ -954,25 +954,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
-        type: 3}
-      propertyPath: ViewingPositon.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
-        type: 3}
-      propertyPath: ViewingPositon.x
-      value: -5
-      objectReference: {fileID: 0}
     - target: {fileID: 3871290300052410722, guid: e5c0b877523af484b9175d836a724eec,
         type: 3}
       propertyPath: m_Name
       value: Painting
       objectReference: {fileID: 0}
-    - target: {fileID: 3871290300052410722, guid: e5c0b877523af484b9175d836a724eec,
+    - target: {fileID: 7172258614014813151, guid: e5c0b877523af484b9175d836a724eec,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: ViewingPositon.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7172258614014813151, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: ViewingPositon.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875032808743222082, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: ViewingPositon.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8875032808743222082, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: ViewingPositon.x
+      value: -2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5c0b877523af484b9175d836a724eec, type: 3}

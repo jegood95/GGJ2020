@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Painting : MonoBehaviour, Selectable
 {
     public List<PaintingScrap> Scraps;
-    public ParticleSystem Hover;
+    public GameObject Hover;
     public Vector3 ViewingPositon;
 
     void Start()
     {
-        Hover.Stop();
+        Hover.SetActive(false);
         SetScrapsCollisionActive(false);
     }
 
@@ -25,13 +23,12 @@ public class Painting : MonoBehaviour, Selectable
 
     public void OnHover()
     {
-        Hover.Play();
+        Hover.SetActive(true);
     }
 
     public void OnUnhover()
     {
-        Hover.Stop();
-        Hover.Clear();
+        Hover.SetActive(false);
     }
 
     public void OnSelect(RaycastHit inHit, PlayerController inPlayer)
