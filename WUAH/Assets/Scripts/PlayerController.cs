@@ -32,11 +32,13 @@ public class PlayerController : MonoBehaviour
 	private Quaternion _StartingCameraRotation;
 	private float _InputDelay;
 	private const float InputDelayDueToModeChange = 0.25f;
+	private Quaternion _RotationWhenSelectingPainting;
 
 	private void Start()
 	{
 		_StartingCameraPosition = Camera.transform.localPosition;
 		_StartingCameraRotation = Camera.transform.localRotation;
+		_RotationWhenSelectingPainting = transform.rotation;
 		ChangeMode(InputMode.Moving);
 	}
 
@@ -142,11 +144,14 @@ public class PlayerController : MonoBehaviour
 			case InputMode.Moving:
 				Cursor.lockState = CursorLockMode.Locked;
 				Cursor.visible = false;
+				transform.rotation = _RotationWhenSelectingPainting;
 				Camera.transform.localPosition = _StartingCameraPosition;
 				Camera.transform.localRotation = _StartingCameraRotation;
                 ScrapInventory.SetActive(false);
                 break;
 			case InputMode.Painting:
+				_RotationWhenSelectingPainting = transform.rotation;
+				transform.rotation = Quaternion.identity;
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
 				Camera.transform.position = _Selectable.GetViewingPosition();

@@ -7,6 +7,8 @@ public class PaintingScrap : MonoBehaviour, Selectable
     public MeshRenderer Renderer;
     public MeshRenderer RendererTransparent;
     public MeshCollider Collider;
+    public ParticleSystem Hover;
+    public Vector3 ViewingPositon;
     
     private ScrapData _Scrap;
     private Vector2 _Size;
@@ -79,12 +81,13 @@ public class PaintingScrap : MonoBehaviour, Selectable
 
     public void OnHover()
     {
-        // Do nothing
+        Hover.Play();
     }
 
     public void OnUnhover()
     {
-        // Do nothing
+        Hover.Stop();
+        Hover.Clear();
     }
 
     public void OnSelect(RaycastHit inHit, PlayerController inPlayer)
