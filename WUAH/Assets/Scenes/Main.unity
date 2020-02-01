@@ -207,6 +207,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2673449127819093309, guid: 3f60652af5156864fb1c5627802a0fbc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3968625590389193926, guid: 3f60652af5156864fb1c5627802a0fbc,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -245,6 +250,11 @@ PrefabInstance:
     - target: {fileID: 4459305528346296204, guid: 3f60652af5156864fb1c5627802a0fbc,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475240812072975248, guid: 3f60652af5156864fb1c5627802a0fbc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5244499884123679768, guid: 3f60652af5156864fb1c5627802a0fbc,
@@ -378,6 +388,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60eb1ba84b46c47508f749abbb5be55b, type: 3}
+--- !u!1 &443997974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2673449127819093309, guid: 3f60652af5156864fb1c5627802a0fbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 22522297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &680771774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -522,7 +538,7 @@ PrefabInstance:
     - target: {fileID: 3709480148189179347, guid: 77bc24a2b13ea449cb5eb6b8db3e9389,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3709480148189179347, guid: 77bc24a2b13ea449cb5eb6b8db3e9389,
         type: 3}
@@ -569,10 +585,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3709480148189179349, guid: 77bc24a2b13ea449cb5eb6b8db3e9389,
+        type: 3}
+      propertyPath: ScrapInventory
+      value: 
+      objectReference: {fileID: 443997974}
     - target: {fileID: 3709480148189179350, guid: 77bc24a2b13ea449cb5eb6b8db3e9389,
         type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3941335103890985804, guid: 77bc24a2b13ea449cb5eb6b8db3e9389,
         type: 3}
