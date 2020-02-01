@@ -123,7 +123,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 8
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -142,10 +142,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8086302bcad0e49f1a132fe9d7a2fcf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera: {fileID: 3709480149133025903}
   MyTransform: {fileID: 3709480148189179347}
   Controller: {fileID: 3709480148189179348}
   Speed: 10
   Sensitivity: {x: 50, y: 50}
+  Color: {r: 0, g: 0, b: 0, a: 1}
+  BrushSize: 8
 --- !u!1 &3709480149133025906
 GameObject:
   m_ObjectHideFlags: 0

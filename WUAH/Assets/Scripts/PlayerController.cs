@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+	public Camera Camera;
     public Transform MyTransform;
 	public CharacterController Controller;
 	public float Speed;
 	public Vector2 Sensitivity;
+	public Color Color;
+	public int BrushSize;
 
-	private float _MinX = -360f;
-	private float _MaxX = 360f;
 	private float _MinY = -60f;
 	private float _MaxY = 60f;
 	private float rotationY = 0f;
@@ -43,5 +44,19 @@ public class PlayerController : MonoBehaviour
 		curSpeed = Speed * horizontal;
 		Vector3 left = -Vector3.Cross(forward, Vector3.up).normalized;
 		Controller.SimpleMove(left * curSpeed);
+
+		if (Input.GetMouseButton(0) == true)
+		{
+			Ray ray = Camera.ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast(ray, out RaycastHit hit) == true)
+			{
+				Painting painting = hit.collider.GetComponent<Painting>();
+
+				if (painting != null)
+				{
+					painting.Paint(hit.textureCoord, Color, BrushSize);
+				}
+			}
+		}
 	}
 }
