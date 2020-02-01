@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{3fa671d9-953a-4c96-8a92-b7f5da2cf4dc}">
+		<property name="assetPath">
+			<value>Danger hi 2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.7142857142857144</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ac0cd136-7911-4606-a4ea-d449725514cc}</destination>
+		</relationship>
+	</object>
+</objects>
