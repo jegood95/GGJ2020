@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -52,5 +53,11 @@ public class Painting : MonoBehaviour, Selectable
     public Quaternion GetViewingRotation()
     {
         return transform.parent.rotation;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(transform.position + ViewingPositon, 0.5f);
     }
 }
