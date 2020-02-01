@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 	public Color Color;
 	public int BrushSize;
 
+    public GameObject ScrapInventory;
+
 	private float _MinY = -60f;
 	private float _MaxY = 60f;
 	private float _RotationY = 0f;
@@ -107,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
 	public void ChangeMode(InputMode inMode)
 	{
-		if (_Mode == inMode)
+		if (_Mode == inMode)    
 		{
 			return;
 		}
@@ -120,12 +122,14 @@ public class PlayerController : MonoBehaviour
 				Cursor.lockState = CursorLockMode.Locked;
 				Cursor.visible = false;
 				Camera.transform.localPosition = _StartingCameraPosition;
-				break;
+                ScrapInventory.SetActive(false);
+                break;
 			case InputMode.Painting:
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
 				Camera.transform.position = _Selectable.GetViewingPosition();
 				Camera.transform.rotation = _Selectable.GetViewingRotation();
+                ScrapInventory.SetActive(true);
 				break;
 		}
 
