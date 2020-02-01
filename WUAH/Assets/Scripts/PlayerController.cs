@@ -5,6 +5,7 @@ public enum InputMode
 	None,
 	Moving,
 	Painting,
+	PaintingScrap,
 }
 
 public class PlayerController : MonoBehaviour
@@ -16,12 +17,14 @@ public class PlayerController : MonoBehaviour
 	public Vector2 Sensitivity;
 	public Color Color;
 	public int BrushSize;
+	public ScrapData TestScrapData;
 
 	private float _MinY = -60f;
 	private float _MaxY = 60f;
 	private float _RotationY = 0f;
 
 	private Selectable _Selectable;
+	private PaintingScrap _Scrap;
 	private InputMode _Mode;
 	private Vector3 _StartingCameraPosition;
 	private float _InputDelay;
@@ -85,21 +88,37 @@ public class PlayerController : MonoBehaviour
 				}
 				break;
 			case InputMode.Painting:
-				Painting painting = _Selectable as Painting;
-				
-				if (painting != null &&
-					Input.GetMouseButton(0) == true)
+				PaintingScrap scrap = null;
+				Ray scrapRay = Camera.ScreenPointToRay(Input.mousePosition);
+				if (Physics.Raycast(scrapRay, out RaycastHit scrapHit) == true)
 				{
-					Ray paintingRay = Camera.ScreenPointToRay(Input.mousePosition);
-					if (Physics.Raycast(paintingRay, out RaycastHit paintingHit) == true)
-					{
-						painting.Paint(paintingHit.textureCoord, Color, BrushSize);
-					}
+					scrap = scrapHit.collider.GetComponent<PaintingScrap>();
+				}
+
+				if (scrap != _Selectable)
+				{
+					_Scrap?.OnUnhover();
+					_Scrap = scrap;
+					_Scrap?.OnHover();
+				}
+				
+				if (scrap != null &&
+					Input.GetMouseButtonUp(0) == true)
+				{
+					_Scrap.SetScrap(TestScrapData);
+					ChangeMode(InputMode.PaintingScrap);
 				}
 
 				if (Input.GetKeyDown(KeyCode.Escape))
 				{
 					ChangeMode(InputMode.Moving);
+					_Selectable.OnDeselect();
+				}
+				break;
+			case InputMode.PaintingScrap:
+				if (Input.GetKeyDown(KeyCode.Escape))
+				{
+					ChangeMode(InputMode.Painting);
 				}
 				break;
 		}
@@ -126,6 +145,10 @@ public class PlayerController : MonoBehaviour
 				Cursor.visible = true;
 				Camera.transform.position = _Selectable.GetViewingPosition();
 				Camera.transform.rotation = _Selectable.GetViewingRotation();
+				break;
+			case InputMode.PaintingScrap:
+				Cursor.lockState = CursorLockMode.None;
+				Cursor.visible = true;
 				break;
 		}
 
