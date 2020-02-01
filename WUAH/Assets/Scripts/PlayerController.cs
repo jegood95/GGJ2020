@@ -29,12 +29,14 @@ public class PlayerController : MonoBehaviour
 	private PaintingScrap _Scrap;
 	private InputMode _Mode;
 	private Vector3 _StartingCameraPosition;
+	private Quaternion _StartingCameraRotation;
 	private float _InputDelay;
 	private const float InputDelayDueToModeChange = 0.25f;
 
 	private void Start()
 	{
 		_StartingCameraPosition = Camera.transform.localPosition;
+		_StartingCameraRotation = Camera.transform.localRotation;
 		ChangeMode(InputMode.Moving);
 	}
 
@@ -141,6 +143,7 @@ public class PlayerController : MonoBehaviour
 				Cursor.lockState = CursorLockMode.Locked;
 				Cursor.visible = false;
 				Camera.transform.localPosition = _StartingCameraPosition;
+				Camera.transform.localRotation = _StartingCameraRotation;
                 ScrapInventory.SetActive(false);
                 break;
 			case InputMode.Painting:

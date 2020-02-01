@@ -51,6 +51,6 @@ public class Painting : MonoBehaviour, Selectable
 
     public Quaternion GetViewingRotation()
     {
-        return transform.rotation;
+        return transform.parent.rotation;
     }
 }
