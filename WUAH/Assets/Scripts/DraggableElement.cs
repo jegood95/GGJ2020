@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,10 +11,21 @@ public class DraggableElement : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     private UIScrapData _UIScrapInfo;
     private Vector2 _InitialScrapPosition;
 
+    private void Start()
+    {
+        transform.localPosition = Vector3.one;
+        transform.localPosition = Vector3.zero;
+    }
+
     /** Register the active element being dragged */
     public void OnBeginDrag(PointerEventData eventData) 
     {
         GameObject rayCastHitObj = eventData.pointerCurrentRaycast.gameObject;
+
+        if (rayCastHitObj == null)
+        {
+            return;
+        }
 
         _DraggedScrap = rayCastHitObj;
         _InitialScrapPosition = rayCastHitObj.transform.position;
@@ -25,6 +37,11 @@ public class DraggableElement : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     /** Move element across the screen based on mouse position */
     public void OnDrag(PointerEventData eventData)
     {
+        if (_DraggedScrap == null)
+        {
+            return;
+        }
+        
         Vector2 pos;
         RectTransform canvasTransform = UIManager.Instance.CanvasRectTransform;
 
@@ -36,6 +53,11 @@ public class DraggableElement : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     /** Set the texture of the dragged element at the given  */
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (_DraggedScrap == null)
+        {
+            return;
+        }
+        
         // Raycast to see if we hit a PaintScrap
         Ray scrapRay = PlayerController.Instance.Camera.ScreenPointToRay(Input.mousePosition);
 

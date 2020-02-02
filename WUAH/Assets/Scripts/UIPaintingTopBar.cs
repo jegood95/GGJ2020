@@ -29,6 +29,6 @@ public class UIPaintingTopBar : MonoBehaviour
 
     public void OnSubmit()
     {
-        PaintingManager.Instance.Player.ChangeMode(InputMode.Moving);
+        PaintingManager.Instance.Player.Painting.Submit();
     }
 }
