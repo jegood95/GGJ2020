@@ -142,6 +142,8 @@ public class Painting : MonoBehaviour, Selectable
             DialogByScrapID curatorDialog = DialogsByScrapID.Find(scrapDialogs => scrapDialogs.ID == scrapData.ID);
             UIManager.Instance.Dialog.Queue(curatorDialog.Dialog);
         }
+        
+        Hover.SetActive(false);
 
         GameController.Instance.PaintingSubmitted(transform.parent.gameObject);
     }
