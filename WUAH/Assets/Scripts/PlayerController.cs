@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
 		_RotationWhenSelectingPainting = transform.rotation;
 		ChangeMode(InputMode.Moving);
 		
-		UIManager.Instance.Dialog.Show(StartingDialog);
+		UIManager.Instance.Dialog.Queue(StartingDialog);
 	}
 
 	// Update is called once per frame
@@ -216,7 +216,9 @@ public class PlayerController : MonoBehaviour
 		MoodByMode moodByMode = MoodsByModes.Find(mbyM => mbyM.Mode == inMode);
 		if (moodByMode != null)
 		{
+			Music.Stop();
 			Music.SetParameter(MoodParamneterName, (float)moodByMode.Mood);
+			Music.Play();
 		}
 
 		switch (_Mode)
