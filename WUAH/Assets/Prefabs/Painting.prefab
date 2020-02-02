@@ -5271,9 +5271,9 @@ MonoBehaviour:
     Dialog: {fileID: 11400000, guid: b71899117d74843b0a97e98365f128d9, type: 2}
   SubmittedPosition: {x: -64.7, y: 5, z: -34}
   SubmittedLookTowards: {x: -70, y: 5, z: -34}
-  Texture: {fileID: 2800000, guid: e9d22ca5776cd46529eadda3c0296638, type: 3}
+  Texture: {fileID: 2800000, guid: 752f99576f6ea4802967016fec762339, type: 3}
   Renderer: {fileID: 583039332375308973}
-  Description: 
+  Description: (test)
 --- !u!33 &213924502521698613
 MeshFilter:
   m_ObjectHideFlags: 0
