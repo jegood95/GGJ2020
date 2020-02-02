@@ -14,6 +14,7 @@ public enum InputMode
 
 public class PlayerController : MonoBehaviour
 {
+	[System.Serializable]
 	public class MoodByMode
 	{
 		public InputMode Mode;
