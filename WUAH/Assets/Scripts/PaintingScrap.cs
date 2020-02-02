@@ -9,11 +9,23 @@ public class PaintingScrap : MonoBehaviour, Selectable
     public MeshCollider Collider;
     public GameObject Hover;
     public Vector3 ViewingPositon;
+    public float PercentToComplete;
     
     private ScrapData _Scrap;
     private Vector2 _Size;
     private Texture2D _Texture;
     private bool _IsDone = false;
+    private float _PercentComplete;
+
+    public float PercentComplete
+    {
+        get { return _PercentComplete; }
+    }
+
+    public bool IsDone
+    {
+        get { return _IsDone; }
+    }
 
     void Start()
     {
@@ -134,5 +146,34 @@ public class PaintingScrap : MonoBehaviour, Selectable
     {
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(transform.position + ViewingPositon, 0.5f);
+    }
+
+    public float Evaluate()
+    {
+        if (_Scrap == null ||
+            _Scrap.Texture == null)
+        {
+            return 0f;
+        }
+        
+        Color[] original = _Scrap.Texture.GetPixels();
+        Color[] painted = _Texture.GetPixels();
+
+        int amountCorrect = 0;
+        for (int index = 0; index < painted.Length; index++)
+        {
+            if (painted[index].a == original[index].a)
+            {
+                amountCorrect++;
+            }
+        }
+
+        _PercentComplete = (float) amountCorrect / (float) painted.Length;
+        return _PercentComplete;
+    }
+
+    public void CheckIsDone()
+    {
+        _IsDone = Evaluate() >= PercentToComplete;
     }
 }
