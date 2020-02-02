@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3709480148189179347}
   - component: {fileID: 3709480148189179348}
   - component: {fileID: 3709480148189179349}
+  - component: {fileID: 1255086973964850302}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -63,6 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8086302bcad0e49f1a132fe9d7a2fcf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Music: {fileID: 1255086973964850302}
+  MoodParamneterName: Mood
   Camera: {fileID: 3709480149133025903}
   MyTransform: {fileID: 3709480148189179347}
   Controller: {fileID: 3709480148189179348}
@@ -71,6 +74,29 @@ MonoBehaviour:
   TestScrapData: {fileID: 0}
   StartingDialog: {fileID: 11400000, guid: 52e877802b4994248be0f51994aa30f5, type: 2}
   ScrapInventory: {fileID: 0}
+--- !u!114 &1255086973964850302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709480148189179350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &3709480149133025906
 GameObject:
   m_ObjectHideFlags: 0
