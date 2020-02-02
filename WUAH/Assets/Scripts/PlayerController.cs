@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.UIElements;
+﻿using System.Collections.Generic;
+using FMODUnity;
+using UnityEngine;
 using Cursor = UnityEngine.Cursor;
 
 public enum InputMode
@@ -13,6 +14,18 @@ public enum InputMode
 
 public class PlayerController : MonoBehaviour
 {
+	[System.Serializable]
+	public class MoodByMode
+	{
+		public InputMode Mode;
+		[Range(0, 3)]
+		public int Mood;
+	}
+	
+	public StudioEventEmitter Music;
+	public string MoodParamneterName;
+	public List<MoodByMode> MoodsByModes;
+
 	public Camera Camera;
     public Transform MyTransform;
 	public CharacterController Controller;
@@ -77,7 +90,7 @@ public class PlayerController : MonoBehaviour
 		_RotationWhenSelectingPainting = transform.rotation;
 		ChangeMode(InputMode.Moving);
 		
-		UIManager.Instance.Dialog.Show(StartingDialog);
+		UIManager.Instance.Dialog.Queue(StartingDialog);
 	}
 
 	// Update is called once per frame
@@ -199,6 +212,14 @@ public class PlayerController : MonoBehaviour
 		InputMode previousMode = _Mode;
 		
 		_Mode = inMode;
+
+		MoodByMode moodByMode = MoodsByModes.Find(mbyM => mbyM.Mode == inMode);
+		if (moodByMode != null)
+		{
+			Music.Stop();
+			Music.SetParameter(MoodParamneterName, (float)moodByMode.Mood);
+			Music.Play();
+		}
 
 		switch (_Mode)
 		{

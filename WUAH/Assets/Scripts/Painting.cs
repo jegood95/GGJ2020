@@ -12,6 +12,7 @@ public class Painting : MonoBehaviour, Selectable
     
     public List<PaintingScrap> Scraps;
     public GameObject Hover;
+    public ParticleSystem Particles;
     public Vector3 ViewingPositon;
     public List<DialogByScrapID> DialogsByScrapID;
     public Vector3 SubmittedPosition;
@@ -28,6 +29,7 @@ public class Painting : MonoBehaviour, Selectable
         Hover.SetActive(false);
         SetScrapsCollisionActive(false);
         Renderer.material.mainTexture = Texture;
+        Particles.Play();
     }
 
     private void SetScrapsCollisionActive(bool inActive)
@@ -67,6 +69,7 @@ public class Painting : MonoBehaviour, Selectable
         
         inPlayer.ChangeMode(InputMode.Painting);
         SetScrapsCollisionActive(true);
+        Particles.Stop();
     }
 
     public void OnDeselect()
@@ -77,6 +80,10 @@ public class Painting : MonoBehaviour, Selectable
         }
         
         SetScrapsCollisionActive(false);
+        if (_Submitted == false)
+        {
+            Particles.Play();
+        }
     }
 
     public Vector3 GetViewingPosition()
@@ -127,7 +134,15 @@ public class Painting : MonoBehaviour, Selectable
         _Submitted = true;
         transform.parent.position = SubmittedPosition;
         transform.parent.LookAt(SubmittedLookTowards);
-        PaintingManager.Instance.Player.ChangeMode(InputMode.Moving);
+
+        // Queue dialog for submitted scraps
+        foreach (PaintingScrap scrap in Scraps)
+        {
+            ScrapData scrapData = scrap.Scrap;
+            DialogByScrapID curatorDialog = DialogsByScrapID.Find(scrapDialogs => scrapDialogs.ID == scrapData.ID);
+            UIManager.Instance.Dialog.Queue(curatorDialog.Dialog);
+        }
+
         GameController.Instance.PaintingSubmitted(transform.parent.gameObject);
     }
     
