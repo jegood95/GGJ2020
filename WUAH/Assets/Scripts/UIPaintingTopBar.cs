@@ -11,13 +11,9 @@ public class UIPaintingTopBar : MonoBehaviour
 
     private void OnEnable()
     {
-        if (PaintingManager.Instance == null)
-        {
-            Submit.interactable = false;
-            return;
-        }
-        
-        if (PaintingManager.Instance.Player == null)
+        if (PaintingManager.Instance == null ||
+            PaintingManager.Instance.Player == null ||
+            PaintingManager.Instance.Player.Painting == null)
         {
             Submit.interactable = false;
             return;

@@ -48,12 +48,18 @@ public class DraggableElement : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 // Remove the current Scrap from the player's inventory
                 ScrapData usedScrap = _UIScrapInfo.PaintingScrapData;
                 List<ScrapData> availableScraps = PaintingScrapManager.Instance.AvailableScraps;
+                
+                if (paintingScrap.Scrap != null)
+                {
+                    availableScraps.Add(paintingScrap.Scrap);
+                    ScrapUIManager.Instance.GetUIScrapInfoWithScrapData(paintingScrap.Scrap).gameObject.SetActive(true);
+                }
 
                 // Find ID associated with the dragged piece and remove it from the AvailableInventory
                 ScrapData scrapToRemove = availableScraps.Find(scrap => scrap.ID == usedScrap.ID);
                 availableScraps.Remove(scrapToRemove);
-
-                Destroy(_DraggedScrap);
+                
+                _DraggedScrap.SetActive(false);
             }
             else
             {
