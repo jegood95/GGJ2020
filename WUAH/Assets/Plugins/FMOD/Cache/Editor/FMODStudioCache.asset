@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8115244045524401073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: AUDIO/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637162359800000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-7356329501923496619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,12 +33,12 @@ MonoBehaviour:
   Path: event:/neutral_world
   guid: c081dd9dfb9c99428d9e18da395fedc2
   Banks:
-  - {fileID: -5647793766146660886}
+  - {fileID: -8115244045524401073}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 8480340952984221640}
+  - {fileID: -3632586742411546176}
   MinDistance: 0
   MaxDistance: 0
   Length: 16153
@@ -77,7 +95,7 @@ MonoBehaviour:
   lastModified: 637162337020000000
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-5024697966945198406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +114,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-3632586742411546176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/neutral_world/Mood
+  m_EditorClassIdentifier: 
+  Name: Mood
+  Min: 0
+  Max: 11
+  Default: 0
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,15 +145,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1924754657309297735}
-  - {fileID: -5647793766146660886}
+  - {fileID: -8115244045524401073}
   EditorEvents:
   - {fileID: -7356329501923496619}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -5647793766146660886}
+  - {fileID: -8115244045524401073}
   StringsBanks:
   - {fileID: 1924754657309297735}
-  stringsBankWriteTime: 637162337020000000
+  stringsBankWriteTime: 637162359800000000
   cacheVersion: 3
 --- !u!114 &131658141611651778
 MonoBehaviour:
@@ -170,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: AUDIO/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637162337020000000
+  lastModified: 637162359800000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -264,7 +299,7 @@ MonoBehaviour:
   Min: 0
   Max: 11
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &8574331318755232333
 MonoBehaviour:
   m_ObjectHideFlags: 0
