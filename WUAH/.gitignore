@@ -62,5 +62,5 @@ crashlytics-build.properties
 .idea/
 
 #fmod logs
-*.log
+fmod_editor.log
 
