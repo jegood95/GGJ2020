@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 	[System.Serializable]
 	public class MoodByMode
 	{
+		public List<InputMode> ModesToNotRestartFrom;
 		public InputMode Mode;
 		[Range(0, 3)]
 		public int Mood;
@@ -216,9 +217,13 @@ public class PlayerController : MonoBehaviour
 		MoodByMode moodByMode = MoodsByModes.Find(mbyM => mbyM.Mode == inMode);
 		if (moodByMode != null)
 		{
-			Music.Stop();
+			if (moodByMode.ModesToNotRestartFrom.Contains(previousMode) == false)
+			{
+				Music.Stop();
+				Music.Play();
+			}
+			
 			Music.SetParameter(MoodParamneterName, (float)moodByMode.Mood);
-			Music.Play();
 		}
 
 		switch (_Mode)
@@ -229,8 +234,7 @@ public class PlayerController : MonoBehaviour
 				transform.rotation = _RotationWhenSelectingPainting;
 				Camera.transform.localPosition = _StartingCameraPosition;
 				Camera.transform.localRotation = _StartingCameraRotation;
-				UIManager.Instance.ScrapInventory.SetActive(false);
-				UIManager.Instance.PaintingTopBar.SetActive(false);
+				UIManager.Instance.PaintingView.SetActive(false);
 				_Scrap?.OnUnhover();
 				_Scrap?.OnDeselect();
 				UIManager.Instance.CrossHair.SetActive(true);
@@ -242,8 +246,7 @@ public class PlayerController : MonoBehaviour
 				Cursor.visible = true;
 				Camera.transform.position = _Selectable.GetViewingPosition();
 				Camera.transform.rotation = _Selectable.GetViewingRotation();
-				UIManager.Instance.ScrapInventory.SetActive(true);
-				UIManager.Instance.PaintingTopBar.SetActive(true);
+				UIManager.Instance.PaintingView.SetActive(true);
 				UIManager.Instance.PaintingPallete.SetActive(false);
 				_Scrap?.OnUnhover();
 				_Scrap?.OnDeselect();
@@ -253,8 +256,7 @@ public class PlayerController : MonoBehaviour
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
 				Camera.transform.position = _Scrap.GetViewingPosition();
-				UIManager.Instance.ScrapInventory.SetActive(false);
-				UIManager.Instance.PaintingTopBar.SetActive(false);
+				UIManager.Instance.PaintingView.SetActive(false);
 				UIManager.Instance.PaintingPallete.SetActive(true);
 				UIManager.Instance.CrossHair.SetActive(false);
 				break;

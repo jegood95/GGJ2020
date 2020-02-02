@@ -138,10 +138,13 @@ public class Painting : MonoBehaviour, Selectable
         // Queue dialog for submitted scraps
         foreach (PaintingScrap scrap in Scraps)
         {
+            scrap.Submit();
             ScrapData scrapData = scrap.Scrap;
             DialogByScrapID curatorDialog = DialogsByScrapID.Find(scrapDialogs => scrapDialogs.ID == scrapData.ID);
             UIManager.Instance.Dialog.Queue(curatorDialog.Dialog);
         }
+
+        Hover.SetActive(false);
 
         GameController.Instance.PaintingSubmitted(transform.parent.gameObject);
     }

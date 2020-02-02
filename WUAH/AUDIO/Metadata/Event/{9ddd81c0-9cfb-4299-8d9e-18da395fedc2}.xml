@@ -771,7 +771,7 @@
 			<destination>{32f8c95c-5cf0-41f6-b471-1c01ca48a552}</destination>
 		</relationship>
 		<relationship name="markerTrack">
-			<destination>{585dc650-76cf-4cf3-9881-be9399139408}</destination>
+			<destination>{e7f5d5c6-69d0-4331-928d-cc5d1f3bc155}</destination>
 		</relationship>
 		<relationship name="triggerConditions">
 			<destination>{2f94df1e-fdf2-4521-acb4-f28bb269075e}</destination>
@@ -1775,7 +1775,7 @@
 			<value>0</value>
 		</property>
 		<property name="maximum">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{a55e6f75-dd57-450d-adb4-4dcce0ba28d7}</destination>
@@ -1783,7 +1783,7 @@
 	</object>
 	<object class="ParameterCondition" id="{8ad566f1-701d-42eb-a43e-e26abb9d3297}">
 		<property name="minimum">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<property name="maximum">
 			<value>3</value>

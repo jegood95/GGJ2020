@@ -18,7 +18,7 @@ public class PaintingScrapManager : MonoBehaviour
 
     void Start()
     {
-        _ScrapUIMgr = UIManager.Instance.ScrapInventory.GetComponent<ScrapUIManager>();
+        _ScrapUIMgr = UIManager.Instance.PaintingView.GetComponentInChildren<ScrapUIManager>();
 
         if (_ScrapUIMgr != null)
         {
