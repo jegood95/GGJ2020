@@ -181,4 +181,14 @@ public class PaintingScrap : MonoBehaviour, Selectable
     {
         _IsDone = Evaluate() >= PercentToComplete;
     }
+
+    public void Submit()
+    {
+        Renderer.material.mainTexture = _Scrap.Texture;
+        Color transparent = Color.white;
+        transparent.a = 0.75f;
+        RendererTransparent.material.mainTexture = _Texture;
+        RendererTransparent.material.color = transparent;
+        RendererTransparent.enabled = true;
+    }
 }
