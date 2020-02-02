@@ -28,6 +28,6 @@ public class GameController : MonoBehaviour
 
     private void EndGame()
     {
-        UIManager.Instance.Dialog.Show(EndGameDialog);
+        UIManager.Instance.Dialog.Queue(EndGameDialog);
     }
 }

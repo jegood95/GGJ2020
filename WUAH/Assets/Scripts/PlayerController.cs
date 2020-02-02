@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 		_RotationWhenSelectingPainting = transform.rotation;
 		ChangeMode(InputMode.Moving);
 		
-		UIManager.Instance.Dialog.Show(StartingDialog);
+		UIManager.Instance.Dialog.Queue(StartingDialog);
 	}
 
 	// Update is called once per frame
