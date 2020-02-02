@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject ScrapInventory;
 
+    public static PlayerController Instance;
+
 	private float _MinY = -60f;
 	private float _MaxY = 60f;
 	private float _RotationY = 0f;
@@ -54,6 +56,11 @@ public class PlayerController : MonoBehaviour
 		get { return _BrushSize; }
 	}
 
+    public InputMode Mode
+    {
+        get { return _Mode; }
+    }
+
 	private void Start()
 	{
 		_StartingCameraPosition = Camera.transform.localPosition;
@@ -62,8 +69,13 @@ public class PlayerController : MonoBehaviour
 		ChangeMode(InputMode.Moving);
 	}
 
-	// Update is called once per frame
-	void Update ()
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    // Update is called once per frame
+    void Update ()
 	{
 		if (_InputDelay > 0f)
 		{
