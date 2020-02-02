@@ -18,12 +18,28 @@ public class ScrapUIManager : MonoBehaviour
         Instance = this;
     }
 
+    private void OnEnable()
+    {
+        List<int> paintingScrapValidIDs = new List<int>();
+        foreach (Painting.DialogByScrapID data in PlayerController.Instance.Painting.DialogsByScrapID)
+        {
+            paintingScrapValidIDs.Add(data.ID);
+        }
+        
+        foreach(UIScrapData uiScrapInfo in _UIScrapInfos)
+        {
+            bool isAvailable = PaintingScrapManager.Instance.AvailableScraps.Contains(uiScrapInfo.PaintingScrapData);
+            bool isValid = paintingScrapValidIDs.Contains(uiScrapInfo.PaintingScrapData.ID);
+            uiScrapInfo.gameObject.SetActive(isAvailable && isValid);
+        }
+    }
+
     public void InitializeScrapUI(ScrapData inScrapData)
     {
         GameObject scrapUIInstance = Instantiate(ScrapUIPrefab);
 
         UIScrapData scrapUIInfo = scrapUIInstance.GetComponent<UIScrapData>();
-        scrapUIInfo.PaintingScrapData = inScrapData;
+        scrapUIInfo.Initilaize(inScrapData);
         _UIScrapInfos.Add(scrapUIInfo);
 
         RawImage scrapImage = scrapUIInstance.GetComponent<RawImage>();

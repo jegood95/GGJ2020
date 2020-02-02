@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 
 public enum InputMode
 {
@@ -6,6 +8,7 @@ public enum InputMode
 	Moving,
 	Painting,
 	PaintingScrap,
+	Dialog,
 }
 
 public class PlayerController : MonoBehaviour
@@ -16,6 +19,7 @@ public class PlayerController : MonoBehaviour
 	public float Speed;
 	public Vector2 Sensitivity;
 	public ScrapData TestScrapData;
+	public ChainedDialog StartingDialog;
 
     public GameObject ScrapInventory;
 
@@ -60,6 +64,11 @@ public class PlayerController : MonoBehaviour
     {
         get { return _Mode; }
     }
+    
+    private void Awake()
+    {
+	    Instance = this;
+    }
 
 	private void Start()
 	{
@@ -67,14 +76,11 @@ public class PlayerController : MonoBehaviour
 		_StartingCameraRotation = Camera.transform.localRotation;
 		_RotationWhenSelectingPainting = transform.rotation;
 		ChangeMode(InputMode.Moving);
+		
+		UIManager.Instance.Dialog.Show(StartingDialog);
 	}
 
-    private void Awake()
-    {
-        Instance = this;
-    }
-
-    // Update is called once per frame
+	// Update is called once per frame
     void Update ()
 	{
 		if (_InputDelay > 0f)
@@ -141,7 +147,8 @@ public class PlayerController : MonoBehaviour
 				}
 				
 				if (scrap != null &&
-					Input.GetMouseButtonUp(0) == true)
+					Input.GetMouseButtonUp(0) == true &&
+					TestScrapData != null)
 				{
 					_Scrap.SetScrap(TestScrapData);
 					_Scrap.OnSelect(paintingHit, this);
@@ -173,6 +180,12 @@ public class PlayerController : MonoBehaviour
 					_Scrap.OnDeselect();
 				}
 				break;
+			case InputMode.Dialog:
+				if (Input.GetMouseButtonDown(0))
+				{
+					UIManager.Instance.Dialog.ShowNextDialog();
+				}
+				break;
 		}
 	}
 
@@ -182,6 +195,8 @@ public class PlayerController : MonoBehaviour
 		{
 			return;
 		}
+
+		InputMode previousMode = _Mode;
 		
 		_Mode = inMode;
 
@@ -197,9 +212,10 @@ public class PlayerController : MonoBehaviour
 				UIManager.Instance.PaintingTopBar.SetActive(false);
 				_Scrap?.OnUnhover();
 				_Scrap?.OnDeselect();
+				UIManager.Instance.CrossHair.SetActive(true);
                 break;
 			case InputMode.Painting:
-				_RotationWhenSelectingPainting = transform.rotation;
+				_RotationWhenSelectingPainting = previousMode == InputMode.Moving ? transform.rotation : _RotationWhenSelectingPainting;
 				transform.rotation = Quaternion.identity;
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
@@ -210,6 +226,7 @@ public class PlayerController : MonoBehaviour
 				UIManager.Instance.PaintingPallete.SetActive(false);
 				_Scrap?.OnUnhover();
 				_Scrap?.OnDeselect();
+				UIManager.Instance.CrossHair.SetActive(false);
 				break;
 			case InputMode.PaintingScrap:
 				Cursor.lockState = CursorLockMode.None;
@@ -218,6 +235,10 @@ public class PlayerController : MonoBehaviour
 				UIManager.Instance.ScrapInventory.SetActive(false);
 				UIManager.Instance.PaintingTopBar.SetActive(false);
 				UIManager.Instance.PaintingPallete.SetActive(true);
+				UIManager.Instance.CrossHair.SetActive(false);
+				break;
+			case InputMode.Dialog:
+				UIManager.Instance.CrossHair.SetActive(false);
 				break;
 		}
 
