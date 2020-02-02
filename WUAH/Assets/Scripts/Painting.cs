@@ -134,7 +134,15 @@ public class Painting : MonoBehaviour, Selectable
         _Submitted = true;
         transform.parent.position = SubmittedPosition;
         transform.parent.LookAt(SubmittedLookTowards);
-        PaintingManager.Instance.Player.ChangeMode(InputMode.Moving);
+
+        // Queue dialog for submitted scraps
+        foreach (PaintingScrap scrap in Scraps)
+        {
+            ScrapData scrapData = scrap.Scrap;
+            DialogByScrapID curatorDialog = DialogsByScrapID.Find(scrapDialogs => scrapDialogs.ID == scrapData.ID);
+            UIManager.Instance.Dialog.Queue(curatorDialog.Dialog);
+        }
+
         GameController.Instance.PaintingSubmitted(transform.parent.gameObject);
     }
     

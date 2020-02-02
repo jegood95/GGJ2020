@@ -29,6 +29,7 @@ public class UIPaintingTopBar : MonoBehaviour
 
     public void OnSubmit()
     {
+        Submit.interactable = false;
         PaintingManager.Instance.Player.Painting.Submit();
     }
 }
