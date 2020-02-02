@@ -216,7 +216,9 @@ public class PlayerController : MonoBehaviour
 		MoodByMode moodByMode = MoodsByModes.Find(mbyM => mbyM.Mode == inMode);
 		if (moodByMode != null)
 		{
+			Music.Stop();
 			Music.SetParameter(MoodParamneterName, (float)moodByMode.Mood);
+			Music.Play();
 		}
 
 		switch (_Mode)
