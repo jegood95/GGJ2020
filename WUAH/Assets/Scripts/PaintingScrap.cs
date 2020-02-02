@@ -27,6 +27,11 @@ public class PaintingScrap : MonoBehaviour, Selectable
         get { return _IsDone; }
     }
 
+    public ScrapData Scrap
+    {
+        get { return _Scrap; }
+    }
+
     void Start()
     {
         Hover.SetActive(false);
@@ -34,11 +39,6 @@ public class PaintingScrap : MonoBehaviour, Selectable
 
     public void SetScrap(ScrapData inScrap)
     {
-        if (_Scrap != null)
-        {
-            return;
-        }
-        
         _Scrap = inScrap;
         _Size = new Vector2(_Scrap.Texture.width, _Scrap.Texture.height);
         _Texture = new Texture2D((int)_Size.x, (int)_Size.y);
