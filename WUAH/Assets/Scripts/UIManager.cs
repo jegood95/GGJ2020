@@ -4,6 +4,7 @@ public class UIManager : MonoBehaviour
 {
 	public GameObject ScrapInventory;
 	public GameObject PaintingPallete;
+	public GameObject PaintingTopBar;
 
 	public static UIManager Instance;
 
@@ -13,5 +14,6 @@ public class UIManager : MonoBehaviour
 		
 		ScrapInventory.SetActive(false);
 		PaintingPallete.SetActive(false);
+		PaintingTopBar.SetActive(false);
 	}
 }

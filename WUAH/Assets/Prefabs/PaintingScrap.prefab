@@ -209,6 +209,7 @@ MonoBehaviour:
   Collider: {fileID: 7760170636519656354}
   Hover: {fileID: 4792656302994400841}
   ViewingPositon: {x: 0, y: 0, z: -2.5}
+  PercentToComplete: 0.75
 --- !u!23 &3542870658845515751
 MeshRenderer:
   m_ObjectHideFlags: 0

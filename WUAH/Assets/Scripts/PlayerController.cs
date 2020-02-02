@@ -38,6 +38,11 @@ public class PlayerController : MonoBehaviour
 	{
 		get { return _Scrap; }
 	}
+	
+	public Painting Painting
+	{
+		get { return _Selectable as Painting; }
+	}
 
 	public Color Color
 	{
@@ -177,6 +182,7 @@ public class PlayerController : MonoBehaviour
 				Camera.transform.localPosition = _StartingCameraPosition;
 				Camera.transform.localRotation = _StartingCameraRotation;
 				UIManager.Instance.ScrapInventory.SetActive(false);
+				UIManager.Instance.PaintingTopBar.SetActive(false);
 				_Scrap?.OnUnhover();
 				_Scrap?.OnDeselect();
                 break;
@@ -188,6 +194,7 @@ public class PlayerController : MonoBehaviour
 				Camera.transform.position = _Selectable.GetViewingPosition();
 				Camera.transform.rotation = _Selectable.GetViewingRotation();
 				UIManager.Instance.ScrapInventory.SetActive(true);
+				UIManager.Instance.PaintingTopBar.SetActive(true);
 				UIManager.Instance.PaintingPallete.SetActive(false);
 				_Scrap?.OnUnhover();
 				_Scrap?.OnDeselect();
@@ -197,6 +204,7 @@ public class PlayerController : MonoBehaviour
 				Cursor.visible = true;
 				Camera.transform.position = _Scrap.GetViewingPosition();
 				UIManager.Instance.ScrapInventory.SetActive(false);
+				UIManager.Instance.PaintingTopBar.SetActive(false);
 				UIManager.Instance.PaintingPallete.SetActive(true);
 				break;
 		}

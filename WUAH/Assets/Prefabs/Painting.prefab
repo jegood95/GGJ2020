@@ -164,7 +164,7 @@ MonoBehaviour:
   - {fileID: 8875032808743222082}
   - {fileID: 7172258614014813151}
   Hover: {fileID: 1498151777703254174}
-  ViewingPositon: {x: -5, y: 0, z: 0}
+  ViewingPositon: {x: 0, y: 0, z: -8}
 --- !u!33 &213924502521698613
 MeshFilter:
   m_ObjectHideFlags: 0
