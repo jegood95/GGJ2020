@@ -234,8 +234,7 @@ public class PlayerController : MonoBehaviour
 				transform.rotation = _RotationWhenSelectingPainting;
 				Camera.transform.localPosition = _StartingCameraPosition;
 				Camera.transform.localRotation = _StartingCameraRotation;
-				UIManager.Instance.ScrapInventory.SetActive(false);
-				UIManager.Instance.PaintingTopBar.SetActive(false);
+				UIManager.Instance.PaintingView.SetActive(false);
 				_Scrap?.OnUnhover();
 				_Scrap?.OnDeselect();
 				UIManager.Instance.CrossHair.SetActive(true);
@@ -247,8 +246,7 @@ public class PlayerController : MonoBehaviour
 				Cursor.visible = true;
 				Camera.transform.position = _Selectable.GetViewingPosition();
 				Camera.transform.rotation = _Selectable.GetViewingRotation();
-				UIManager.Instance.ScrapInventory.SetActive(true);
-				UIManager.Instance.PaintingTopBar.SetActive(true);
+				UIManager.Instance.PaintingView.SetActive(true);
 				UIManager.Instance.PaintingPallete.SetActive(false);
 				_Scrap?.OnUnhover();
 				_Scrap?.OnDeselect();
@@ -258,8 +256,7 @@ public class PlayerController : MonoBehaviour
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
 				Camera.transform.position = _Scrap.GetViewingPosition();
-				UIManager.Instance.ScrapInventory.SetActive(false);
-				UIManager.Instance.PaintingTopBar.SetActive(false);
+				UIManager.Instance.PaintingView.SetActive(false);
 				UIManager.Instance.PaintingPallete.SetActive(true);
 				UIManager.Instance.CrossHair.SetActive(false);
 				break;
