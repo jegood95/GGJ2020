@@ -114,6 +114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
         type: 3}
+      propertyPath: DialogsByScrapID.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
       propertyPath: SubmittedPosition.x
       value: -57.82
       objectReference: {fileID: 0}
@@ -151,6 +156,28 @@ PrefabInstance:
 
         What could have been there?'
       objectReference: {fileID: 0}
+    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: DialogsByScrapID.Array.data[1].ID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: DialogsByScrapID.Array.data[1].Dialog
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d9dec8fa85de474c948bb480f140733,
+        type: 2}
+    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: DialogsByScrapID.Array.data[2].ID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: DialogsByScrapID.Array.data[2].Dialog
+      value: 
+      objectReference: {fileID: 11400000, guid: b71899117d74843b0a97e98365f128d9,
+        type: 2}
     - target: {fileID: 3871290300052410722, guid: e5c0b877523af484b9175d836a724eec,
         type: 3}
       propertyPath: m_Name
