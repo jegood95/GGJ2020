@@ -5,5 +5,18 @@ using UnityEngine.UI;
 
 public class UIScrapData : MonoBehaviour
 {
-    public ScrapData PaintingScrapData;
+    public Text Name;
+
+    private ScrapData _PaintingScrapData;
+    
+    public ScrapData PaintingScrapData
+    {
+        get { return _PaintingScrapData; }
+    }
+
+    public void Initilaize(ScrapData inData)
+    {
+        _PaintingScrapData = inData;
+        Name.text = _PaintingScrapData.Name;
+    }
 }
