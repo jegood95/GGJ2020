@@ -1,48 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8775315000308480351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: AUDIO/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637162423890000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &-6602828731180644220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/neutral_world
-  m_EditorClassIdentifier: 
-  Path: event:/neutral_world
-  guid: c081dd9dfb9c99428d9e18da395fedc2
-  Banks:
-  - {fileID: -8775315000308480351}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -2111035378592986066}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 39551
---- !u!114 &-5516172491097374361
+--- !u!114 &-8109048238014354075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +16,7 @@ MonoBehaviour:
   Min: 0
   Max: 11
   Default: 0
-  Exists: 0
+  Exists: 1
 --- !u!114 &-5018854364218937837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +33,24 @@ MonoBehaviour:
   Min: 0
   Max: 11
   Default: 0
+  Exists: 1
+--- !u!114 &-3445688243087525447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: AUDIO/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637162364240000000
+  LoadResult: 0
+  FileSizes: []
   Exists: 1
 --- !u!114 &-2652653929955369427
 MonoBehaviour:
@@ -161,15 +137,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1924754657309297735}
-  - {fileID: -8775315000308480351}
+  - {fileID: -3445688243087525447}
   EditorEvents:
-  - {fileID: -6602828731180644220}
+  - {fileID: 1747828272862311376}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -8775315000308480351}
+  - {fileID: -3445688243087525447}
   StringsBanks:
   - {fileID: 1924754657309297735}
-  stringsBankWriteTime: 637162423890000000
+  stringsBankWriteTime: 637162364240000000
   cacheVersion: 3
 --- !u!114 &131658141611651778
 MonoBehaviour:
@@ -249,6 +225,30 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 16153
+--- !u!114 &1747828272862311376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/neutral_world
+  m_EditorClassIdentifier: 
+  Path: event:/neutral_world
+  guid: c081dd9dfb9c99428d9e18da395fedc2
+  Banks:
+  - {fileID: -3445688243087525447}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8109048238014354075}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 16153
 --- !u!114 &1924754657309297735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: AUDIO/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637162423890000000
+  lastModified: 637162364240000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop

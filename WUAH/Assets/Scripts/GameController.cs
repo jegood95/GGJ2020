@@ -5,6 +5,8 @@ public class GameController : MonoBehaviour
 {
     public List<GameObject> Paintings;
     public ChainedDialog EndGameDialog;
+    public Transform DoorLeft;
+    public Transform DoorRight;
 
     private List<GameObject> _ActivePaintings;
 
@@ -14,6 +16,9 @@ public class GameController : MonoBehaviour
     {
         _ActivePaintings = new List<GameObject>(Paintings);
         Instance = this;
+
+        DoorLeft.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        DoorRight.localRotation = Quaternion.Euler(0f, 0f, -90f);
     }
 
     public void PaintingSubmitted(GameObject inPainting)
@@ -28,6 +33,9 @@ public class GameController : MonoBehaviour
 
     private void EndGame()
     {
+        DoorLeft.localRotation = Quaternion.Euler(0f, 0f, 170f);
+        DoorRight.localRotation = Quaternion.Euler(0f, 0f, -170f);
+        
         UIManager.Instance.Dialog.Queue(EndGameDialog);
     }
 }
