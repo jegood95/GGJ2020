@@ -262,6 +262,7 @@ public class PlayerController : MonoBehaviour
 				break;
 			case InputMode.Dialog:
 				UIManager.Instance.CrossHair.SetActive(false);
+				_RotationWhenSelectingPainting = previousMode == InputMode.Moving ? transform.rotation : _RotationWhenSelectingPainting;
 				break;
 		}
 
