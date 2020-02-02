@@ -57,4 +57,37 @@ public class Painting : MonoBehaviour, Selectable
         Gizmos.color = Color.blue;
         Gizmos.DrawSphere(transform.position + ViewingPositon, 0.5f);
     }
+
+    public bool IsDone()
+    {
+        foreach (PaintingScrap scrap in Scraps)
+        {
+            if (scrap.IsDone == false)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void CheckIsDone()
+    {
+        foreach (PaintingScrap scrap in Scraps)
+        {
+            scrap.CheckIsDone();
+        }
+    }
+
+    public float GetPercentComplete()
+    {
+        float percent = 0f;
+        float percentPerScrap = 1f / (float)Scraps.Count;
+        foreach (PaintingScrap scrap in Scraps)
+        {
+            percent += scrap.IsDone ? percentPerScrap : 0f;
+        }
+
+        return percent;
+    }
 }

@@ -9,10 +9,23 @@ public class PaintingScrap : MonoBehaviour, Selectable
     public MeshCollider Collider;
     public GameObject Hover;
     public Vector3 ViewingPositon;
+    public float PercentToComplete;
     
     private ScrapData _Scrap;
     private Vector2 _Size;
     private Texture2D _Texture;
+    private bool _IsDone = false;
+    private float _PercentComplete;
+
+    public float PercentComplete
+    {
+        get { return _PercentComplete; }
+    }
+
+    public bool IsDone
+    {
+        get { return _IsDone; }
+    }
 
     void Start()
     {
@@ -35,13 +48,17 @@ public class PaintingScrap : MonoBehaviour, Selectable
         {
             pixels[index].a = 0f;
         }
+        _Texture.SetPixels(pixels);
+        _Texture.Apply();
         
         Renderer.material.mainTexture = _Texture;
         Renderer.material.color = Color.white;
         Color transparent = Color.white;
-        transparent.a = 0.25f;
+        transparent.a = 0.5f;
         RendererTransparent.material.mainTexture = _Scrap.Texture;
         RendererTransparent.material.color = transparent;
+        
+        Hover.SetActive(false);
     }
     
     public void Paint(Vector2 inPoint, Color inColor, int inBrushSize)
@@ -105,12 +122,13 @@ public class PaintingScrap : MonoBehaviour, Selectable
 
     public void OnSelect(RaycastHit inHit, PlayerController inPlayer)
     {
-        // Do nothing
+        Hover.SetActive(false);
+        RendererTransparent.enabled = PaintingManager.Instance.ShowGuide;
     }
 
     public void OnDeselect()
     {
-        // Do nothing
+        RendererTransparent.enabled = _IsDone == false;
     }
 
     public Vector3 GetViewingPosition()
@@ -128,5 +146,34 @@ public class PaintingScrap : MonoBehaviour, Selectable
     {
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(transform.position + ViewingPositon, 0.5f);
+    }
+
+    public float Evaluate()
+    {
+        if (_Scrap == null ||
+            _Scrap.Texture == null)
+        {
+            return 0f;
+        }
+        
+        Color[] original = _Scrap.Texture.GetPixels();
+        Color[] painted = _Texture.GetPixels();
+
+        int amountCorrect = 0;
+        for (int index = 0; index < painted.Length; index++)
+        {
+            if (painted[index].a == original[index].a)
+            {
+                amountCorrect++;
+            }
+        }
+
+        _PercentComplete = (float) amountCorrect / (float) painted.Length;
+        return _PercentComplete;
+    }
+
+    public void CheckIsDone()
+    {
+        _IsDone = Evaluate() >= PercentToComplete;
     }
 }
