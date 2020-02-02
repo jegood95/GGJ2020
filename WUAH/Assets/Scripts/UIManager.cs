@@ -2,6 +2,7 @@
 
 public class UIManager : MonoBehaviour
 {
+    public RectTransform CanvasRectTransform;
 	public GameObject ScrapInventory;
 	public GameObject PaintingPallete;
 
