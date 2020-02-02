@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SelectableButton : MonoBehaviour, Selectable
@@ -30,7 +27,12 @@ public class SelectableButton : MonoBehaviour, Selectable
         switch (ButtonResult)
         {
             case Result.Quit:
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#else
                 Application.Quit();
+#endif
+                
                 break;
             case Result.Restart:
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
