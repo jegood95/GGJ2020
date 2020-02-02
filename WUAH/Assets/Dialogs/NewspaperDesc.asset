@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31dc0eddcbe8d4ecab23d7094fba9346, type: 3}
   m_Name: NewspaperDesc
   m_EditorClassIdentifier: 
-  Dialogs: []
+  Dialogs:
+  - Dialog: Hmm...their company must be going south.
+    Color: {r: 1, g: 1, b: 1, a: 0}

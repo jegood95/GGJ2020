@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31dc0eddcbe8d4ecab23d7094fba9346, type: 3}
-  m_Name: Test3Dialog
+  m_Name: Money dialog
   m_EditorClassIdentifier: 
   Dialogs:
-  - Dialog: This is a test 3
+  - Dialog: "Of course\u2014early humans loved green paper."
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - Dialog: But more of it meant more problems.
     Color: {r: 1, g: 1, b: 1, a: 1}

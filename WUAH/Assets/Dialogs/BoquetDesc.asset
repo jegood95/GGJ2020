@@ -10,6 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31dc0eddcbe8d4ecab23d7094fba9346, type: 3}
-  m_Name: Curator Desc 4
+  m_Name: BoquetDesc
   m_EditorClassIdentifier: 
-  Dialogs: []
+  Dialogs:
+  - Dialog: A nice surprise from the scholar's husband.
+    Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 0}
