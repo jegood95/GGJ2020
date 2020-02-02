@@ -47,6 +47,8 @@ MonoBehaviour:
   Paintings:
   - {fileID: 314735281899158496}
   EndGameDialog: {fileID: 11400000, guid: cb2fbb2729a41445fa2d073a28c92287, type: 2}
+  DoorLeft: {fileID: 0}
+  DoorRight: {fileID: 0}
 --- !u!1001 &3596049630538476162
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -217,8 +217,8 @@ public class PlayerController : MonoBehaviour
 		if (moodByMode != null)
 		{
 			Music.Stop();
-			Music.SetParameter(MoodParamneterName, (float)moodByMode.Mood);
 			Music.Play();
+			Music.SetParameter(MoodParamneterName, (float)moodByMode.Mood);
 		}
 
 		switch (_Mode)
