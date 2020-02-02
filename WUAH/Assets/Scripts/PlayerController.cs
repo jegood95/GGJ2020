@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 	[System.Serializable]
 	public class MoodByMode
 	{
+		public List<InputMode> ModesToNotRestartFrom;
 		public InputMode Mode;
 		[Range(0, 3)]
 		public int Mood;
@@ -216,8 +217,12 @@ public class PlayerController : MonoBehaviour
 		MoodByMode moodByMode = MoodsByModes.Find(mbyM => mbyM.Mode == inMode);
 		if (moodByMode != null)
 		{
-			Music.Stop();
-			Music.Play();
+			if (moodByMode.ModesToNotRestartFrom.Contains(previousMode) == false)
+			{
+				Music.Stop();
+				Music.Play();
+			}
+			
 			Music.SetParameter(MoodParamneterName, (float)moodByMode.Mood);
 		}
 
