@@ -355,6 +355,12 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2.22
       objectReference: {fileID: 0}
+    - target: {fileID: 1486733352652784571, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: DialogsByScrapID.Array.data[2].Dialog
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d9dec8fa85de474c948bb480f140733,
+        type: 2}
     - target: {fileID: 3596049631221047169, guid: 5f550604b00ef4b089e8b9be7f732628,
         type: 3}
       propertyPath: DoorLeft
@@ -586,7 +592,7 @@ PrefabInstance:
     - target: {fileID: 578323527844555194, guid: c2671b3646af8f243be65b78d709a655,
         type: 3}
       propertyPath: Name
-      value: Business partner?
+      value: Business partners?
       objectReference: {fileID: 0}
     - target: {fileID: 3873180088612341968, guid: c2671b3646af8f243be65b78d709a655,
         type: 3}
@@ -651,7 +657,7 @@ PrefabInstance:
     - target: {fileID: 7207872788279094742, guid: c2671b3646af8f243be65b78d709a655,
         type: 3}
       propertyPath: Name
-      value: A lover?
+      value: Lovers?
       objectReference: {fileID: 0}
     - target: {fileID: 8153679325049260745, guid: c2671b3646af8f243be65b78d709a655,
         type: 3}
