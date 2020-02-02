@@ -89,4 +89,9 @@ public class UIPaintingPallete : MonoBehaviour
 		
 		_Manager.Player.SetBrushSize(inBrush);
 	}
+
+    public void ScreenBack()
+    {
+        _Manager.Player.ChangeMode(InputMode.Painting);
+    }
 }

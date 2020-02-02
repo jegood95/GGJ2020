@@ -32,4 +32,9 @@ public class UIPaintingTopBar : MonoBehaviour
         Submit.interactable = false;
         PaintingManager.Instance.Player.Painting.Submit();
     }
+
+    public void OnBack()
+    {
+        PaintingManager.Instance.Player.ChangeMode(InputMode.Moving);
+    }
 }

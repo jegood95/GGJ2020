@@ -61,3 +61,6 @@ crashlytics-build.properties
 #Rider binaries
 .idea/
 
+#fmod logs
+fmod_editor.log
+

@@ -35,6 +35,7 @@ public class PaintingScrap : MonoBehaviour, Selectable
     void Start()
     {
         Hover.SetActive(false);
+        Renderer.enabled = false;
     }
 
     public void SetScrap(ScrapData inScrap)
@@ -129,6 +130,7 @@ public class PaintingScrap : MonoBehaviour, Selectable
     {
         Hover.SetActive(false);
         RendererTransparent.enabled = PaintingManager.Instance.ShowGuide;
+        Renderer.enabled = true;
     }
 
     public void OnDeselect()
