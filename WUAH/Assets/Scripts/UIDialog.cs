@@ -15,8 +15,11 @@ public class UIDialog : MonoBehaviour
         bool emptyInitialChain = _ChainedDialogs.Count <= 0;
 		_ChainedDialogs.Add(inChainedDialog);
 
-        if (emptyInitialChain == true)
+        if (_ActiveChain == null)
         {
+	        _ActiveChain = _ChainedDialogs[0];
+	        _ChainedDialogs.RemoveAt(0);
+	        _Index = -1;
             ShowNextDialog();
         }
 
@@ -26,41 +29,29 @@ public class UIDialog : MonoBehaviour
 
 	public void ShowNextDialog()
 	{
-        if (_ChainedDialogs.Count > 0)
-        {
-            // If we don't have an active dialogue, dequeue the next one
-            if (_ActiveChain == null)
-            {
-                ChainedDialog nextChain = _ChainedDialogs[0];
-                _ChainedDialogs.Remove(nextChain);
+		_Index++;
 
-                _Index = 0;
-                _ActiveChain = nextChain;
-            }
-
-            int activeChainCount = _ActiveChain.Dialogs.Count;
-
-            if (_Index < activeChainCount)
-            {
-                ChainedDialog.DialogInfo dialogInfo = _ActiveChain.Dialogs[_Index++];
-                Dialog.text = dialogInfo.Dialog;
-                Dialog.color = dialogInfo.Color;
-            }
-            else
-            {
-                // Mark the next dialog chain ready
-                _ActiveChain = null;
-            }
-        }
-        else
-        {
-            _ChainedDialogs.Clear();
-            _ActiveChain = null;
-
-            // No more dialog to show, so switch modes
-            gameObject.SetActive(false);
-            PlayerController.Instance.ChangeMode(InputMode.Moving);
-            return;
-        }
+		if (_Index < _ActiveChain.Dialogs.Count)
+		{
+			ChainedDialog.DialogInfo dialogInfo = _ActiveChain.Dialogs[_Index];
+			Dialog.text = dialogInfo.Dialog;
+			Dialog.color = dialogInfo.Color;
+		}
+		else if (_ChainedDialogs.Count > 0)
+		{
+			_ActiveChain = _ChainedDialogs[0];
+			_ChainedDialogs.RemoveAt(0);
+			_Index = 0;
+			
+			ChainedDialog.DialogInfo dialogInfo = _ActiveChain.Dialogs[_Index];
+			Dialog.text = dialogInfo.Dialog;
+			Dialog.color = dialogInfo.Color;
+		}
+		else
+		{
+			_ActiveChain = null;
+			gameObject.SetActive(false);
+			PlayerController.Instance.ChangeMode(InputMode.Moving);
+		}
 	}
 }
