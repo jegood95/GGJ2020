@@ -1,5 +1,64 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8775315000308480351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: AUDIO/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637162423890000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-6602828731180644220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/neutral_world
+  m_EditorClassIdentifier: 
+  Path: event:/neutral_world
+  guid: c081dd9dfb9c99428d9e18da395fedc2
+  Banks:
+  - {fileID: -8775315000308480351}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -2111035378592986066}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 39551
+--- !u!114 &-5516172491097374361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/neutral_world/Mood
+  m_EditorClassIdentifier: 
+  Name: Mood
+  Min: 0
+  Max: 11
+  Default: 0
+  Exists: 0
 --- !u!114 &-5018854364218937837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34,6 +93,23 @@ MonoBehaviour:
   lastModified: 637162364240000000
   LoadResult: 0
   FileSizes: []
+  Exists: 1
+--- !u!114 &-2111035378592986066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/neutral_world/Mood
+  m_EditorClassIdentifier: 
+  Name: Mood
+  Min: 0
+  Max: 11
+  Default: 0
   Exists: 1
 --- !u!114 &-1759751368151920011
 MonoBehaviour:
@@ -85,14 +161,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1924754657309297735}
-  - {fileID: -352646537249408121}
-  EditorEvents: []
+  - {fileID: -8775315000308480351}
+  EditorEvents:
+  - {fileID: -6602828731180644220}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -352646537249408121}
+  - {fileID: -8775315000308480351}
   StringsBanks:
   - {fileID: 1924754657309297735}
-  stringsBankWriteTime: 637161534116765934
+  stringsBankWriteTime: 637162423890000000
   cacheVersion: 3
 --- !u!114 &131658141611651778
 MonoBehaviour:
@@ -127,6 +204,24 @@ MonoBehaviour:
   Path: AUDIO/Build/Desktop/Master.bank
   SubDir: 
   lastModified: 637161097190000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &235661716850665919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: AUDIO/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637162423150000000
   LoadResult: 0
   FileSizes: []
   Exists: 0
@@ -168,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: AUDIO/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637161534116765934
+  lastModified: 637162423890000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
