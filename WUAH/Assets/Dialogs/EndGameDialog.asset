@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: EndGameDialog
   m_EditorClassIdentifier: 
   Dialogs:
-  - Dialog: You win!
+  - Dialog: Thank you for restoring the art.
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - Dialog: I'm sure your work was precise and historically accurate.
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - Dialog: 'See you soon.
+
+      - E'
     Color: {r: 1, g: 1, b: 1, a: 1}

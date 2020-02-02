@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: StartingDialog
   m_EditorClassIdentifier: 
   Dialogs:
-  - Dialog: Please restore the paintings.
+  - Dialog: 'Please restore the paintings.
+
+      -E'
     Color: {r: 0.4039216, g: 0.43137258, b: 0.53333336, a: 1}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -350,6 +350,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1000355637879379393, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.22
+      objectReference: {fileID: 0}
     - target: {fileID: 3596049631221047169, guid: 5f550604b00ef4b089e8b9be7f732628,
         type: 3}
       propertyPath: DoorLeft
@@ -420,6 +425,71 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 4270598671036994124, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: Description
+      value: 'Two people at a dinner table.
+
+        A young boy serves them food.
+
+        Who are these people?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270598671036994124, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: DialogsByScrapID.Array.data[0].Dialog
+      value: 
+      objectReference: {fileID: 11400000, guid: 991ebd7c826444bf582659082d2a146c,
+        type: 2}
+    - target: {fileID: 6849932606247629953, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849932606247629953, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849932606247629953, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849932606247629953, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849932606247629953, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928601702801810732, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: Description
+      value: 'A man leers over a studious mathematician...
+
+        Who are they?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6928601702801810732, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: DialogsByScrapID.Array.data[0].Dialog
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c91cca7536b1456d90e5aab2b2ad730,
+        type: 2}
+    - target: {fileID: 6928601702801810732, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: DialogsByScrapID.Array.data[1].Dialog
+      value: 
+      objectReference: {fileID: 11400000, guid: ed2c0ea9f7b9440d887a85d54bd5d884,
+        type: 2}
+    - target: {fileID: 6928601702801810732, guid: 5f550604b00ef4b089e8b9be7f732628,
+        type: 3}
+      propertyPath: DialogsByScrapID.Array.data[2].Dialog
+      value: 
+      objectReference: {fileID: 11400000, guid: 8468cf2e89bc74405b02c2f61289782a,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f550604b00ef4b089e8b9be7f732628, type: 3}
 --- !u!114 &1231274654 stripped
@@ -513,6 +583,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 578323527844555194, guid: c2671b3646af8f243be65b78d709a655,
+        type: 3}
+      propertyPath: Name
+      value: Business partner?
+      objectReference: {fileID: 0}
     - target: {fileID: 3873180088612341968, guid: c2671b3646af8f243be65b78d709a655,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -568,10 +643,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5224972743935966741, guid: c2671b3646af8f243be65b78d709a655,
+        type: 3}
+      propertyPath: Name
+      value: Aristocrats?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207872788279094742, guid: c2671b3646af8f243be65b78d709a655,
+        type: 3}
+      propertyPath: Name
+      value: A lover?
+      objectReference: {fileID: 0}
     - target: {fileID: 8153679325049260745, guid: c2671b3646af8f243be65b78d709a655,
         type: 3}
       propertyPath: m_Name
       value: ScrapManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8614517992159881475, guid: c2671b3646af8f243be65b78d709a655,
+        type: 3}
+      propertyPath: Name
+      value: Assassin/Mark?
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2671b3646af8f243be65b78d709a655, type: 3}

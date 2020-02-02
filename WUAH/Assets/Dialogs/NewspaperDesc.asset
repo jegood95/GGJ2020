@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31dc0eddcbe8d4ecab23d7094fba9346, type: 3}
-  m_Name: Test1Dialog
+  m_Name: NewspaperDesc
   m_EditorClassIdentifier: 
   Dialogs:
-  - Dialog: Of course, a hand! Humans helping humans.
-    Color: {r: 1, g: 1, b: 1, a: 1}
+  - Dialog: Hmm...their company must be going south.
+    Color: {r: 1, g: 1, b: 1, a: 0}
