@@ -70,15 +70,9 @@ MonoBehaviour:
   - ModesToNotRestartFrom: 04000000
     Mode: 1
     Mood: 0
-  - ModesToNotRestartFrom: 00000000
+  - ModesToNotRestartFrom: 03000000
     Mode: 2
     Mood: 1
-  - ModesToNotRestartFrom: 
-    Mode: 0
-    Mood: 0
-  - ModesToNotRestartFrom: 
-    Mode: 0
-    Mood: 0
   Camera: {fileID: 3709480149133025903}
   MyTransform: {fileID: 3709480148189179347}
   Controller: {fileID: 3709480148189179348}
