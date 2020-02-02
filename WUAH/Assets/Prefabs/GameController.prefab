@@ -29,6 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2451151034818364470}
+  - {fileID: 6233714641203978913}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -111,6 +112,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: SubmittedPosition.x
+      value: -57.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: SubmittedPosition.y
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: SubmittedPosition.z
+      value: -113.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: SubmittedLookTowards.x
+      value: -57.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: SubmittedLookTowards.y
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: SubmittedLookTowards.z
+      value: -115.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685917848210237753, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: Description
+      value: 'A man''s hand reaches for the sky...
+
+        But the right side of the painting is completely faded.
+
+        What could have been there?'
+      objectReference: {fileID: 0}
     - target: {fileID: 3871290300052410722, guid: e5c0b877523af484b9175d836a724eec,
         type: 3}
       propertyPath: m_Name
@@ -129,4 +169,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
     type: 3}
   m_PrefabInstance: {fileID: 3596049630538476162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4999306230424456213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3596049631221047174}
+    m_Modifications:
+    - target: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -71.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 24.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3871290300052410722, guid: e5c0b877523af484b9175d836a724eec,
+        type: 3}
+      propertyPath: m_Name
+      value: Painting (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e5c0b877523af484b9175d836a724eec, type: 3}
+--- !u!4 &6233714641203978913 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1433130905714929332, guid: e5c0b877523af484b9175d836a724eec,
+    type: 3}
+  m_PrefabInstance: {fileID: 4999306230424456213}
   m_PrefabAsset: {fileID: 0}
