@@ -161,37 +161,37 @@ PrefabInstance:
     - target: {fileID: 412294045766372046, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1643601026743621612, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1643601026743621612, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1643601026743621612, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1643601026743621612, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 1643601026743621612, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1643601026743621612, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3415750317752302538, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
@@ -301,102 +301,107 @@ PrefabInstance:
     - target: {fileID: 3746613419828758058, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3746613419828758058, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3746613419828758058, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 3746613419828758058, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 3746613419828758058, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3746613419828758058, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4053465243072846893, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_Name
       value: PaintingPallete
       objectReference: {fileID: 0}
+    - target: {fileID: 4053465243072846893, guid: 69b03ae807f0246708d035ee65d0e344,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4244295476195377839, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4244295476195377839, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4244295476195377839, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 111.41208
       objectReference: {fileID: 0}
     - target: {fileID: 4244295476195377839, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -44.97336
       objectReference: {fileID: 0}
     - target: {fileID: 4244295476195377839, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4244295476195377839, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4530262772675423789, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4530262772675423789, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4530262772675423789, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4530262772675423789, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -44.97336
       objectReference: {fileID: 0}
     - target: {fileID: 4530262772675423789, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 127.17584
       objectReference: {fileID: 0}
     - target: {fileID: 4530262772675423789, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 55.417404
       objectReference: {fileID: 0}
     - target: {fileID: 6261589747309377451, guid: 69b03ae807f0246708d035ee65d0e344,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69b03ae807f0246708d035ee65d0e344, type: 3}
