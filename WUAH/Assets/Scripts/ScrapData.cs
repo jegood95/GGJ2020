@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class ScrapData : MonoBehaviour
 {
+	public int ID;
+	public string Name;
 	public Texture2D Texture;
 }
